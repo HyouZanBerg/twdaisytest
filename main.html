@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="./extension_icon.png">
+    <style>
+        main::-webkit-scrollbar {
+            width: 10px !important;
+        }
+
+        main::-webkit-scrollbar-track {
+            background: #2d1b4e !important; 
+        }
+
+        main::-webkit-scrollbar-thumb {
+            background: #a855f7 !important; 
+            border-radius: 10px !important;
+            border: 2px solid #2d1b4e !important; 
+        }
+
+        main::-webkit-scrollbar-thumb:hover {
+            background: #c084fc !important; 
+        }
+
+        html, body, * {
+            scrollbar-width: thin !important;
+            scrollbar-color: #a855f7 #2d1b4e !important; 
+        }
+    </style>
+</head>
+<body class="m-0 p-0 text-white h-screen overflow-hidden">
+    <div class="flex flex-col h-full min-h-screen">
+        <header class="sm:h-16 flex justify-between items-center flex-none bg-slate-800 w-full h-10 border-b-4 border-black">
+            <div class="pl-1 flex flex-row gap-3">
+                <div class="sm:text-4xl sm:[letter-spacing:0.1rem] text-2xl font-bold [text-shadow:3px_2px_0px_purple]">
+                    YkMainHub
+                </div>
+            </div>
+            <div class="sm:text-4xl sm:gap-5 pr-1 flex flex-row gap-3 text-1xl">
+                <div>
+                    <a href="./about/">about</a>
+                </div>
+                <div>
+                    <a href="./project/">project</a>
+                </div>
+                <div>
+                    <a href="./skill/">skill</a>
+                </div>
+                <div>
+                    <button id="searchbtn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div>
+                    <button id="navbtn">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </header>      
+
+        <subnav class="bg-slate-800 w-full max-h-10 border-b-4 border-black">
+            <ul class="sm:flex sm:items-center hidden p-[0.05rem] overflow-x-scroll">
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black bg-black"><p class="ml-1 mr-1">ABCDEFGH&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
+            </ul>
+        </subnav>
+
+        <nav id="navbar" class="bg-red-100 w-full hidden">
+            <ul class="pt-2 pb-4">
+               <li class="border-r-2 active:bg-red-800 border-black bg-black"><p class="ml-1 mr-1 pt-1">ABCDEFGH&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+            </ul>
+        </nav>
+
+        <div id="searchbar" class="bg-red-100 w-full hidden">
+            <ul class="pt-1 pb-1">
+                <input placeholder="search..." class="rounded-full"/>
+            </ul>
+        </div>
+
+        <main class="flex flex-col flex-grow bg-gray-900 w-full overflow-y-auto">
+            <div class="sm:pl-12 sm:pr-12 flex flex-col bg-slate-800 w-full flex-1 rounded-md pl-5 pr-5">
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+                <section class="flex flex-col">
+                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    </div>
+                    <hr>
+                </section>
+            </div>
+
+            <footer class="flex justify-center items-center flex-none bg--800 w-full h-10 p-1 text-xs">
+                <cite>@Copyright According to International Law</cite>
+            </footer>
+        </main>
+    </div>
+    <script>
+        const navbtn = document.getElementById("navbtn")
+        const navbar = document.getElementById("navbar")
+        const searchbtn = document.getElementById("searchbtn")
+        const searchbar = document.getElementById("searchbar")
+        var navOpen = false
+        var searchOpen = false
+    
+        navbtn.addEventListener("click", () => {
+            navOpen = !navOpen
+            searchOpen = false
+            render()
+        })
+
+        searchbtn.addEventListener("click", () => {
+            searchOpen = !searchOpen
+            navOpen = false
+            render()
+        })
+
+        function render() {
+            navbar.classList.toggle("hidden", !navOpen)
+            searchbar.classList.toggle("hidden", !searchOpen)
+        }
+    </script>
+</body>
+</html>
