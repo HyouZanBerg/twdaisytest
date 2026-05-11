@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/png" href="./extension_icon.png">
     <style>
+        #searchbar, #navbar{
+            z-index:999 !important;
+        }
+        main{
+            z-index:1 !important;
+            font-family: "Inter";
+        }
         main::-webkit-scrollbar {
             width: 10px !important;
         }
@@ -18,7 +25,7 @@
         }
 
         main::-webkit-scrollbar-thumb {
-            background: #a855f7 !important; 
+            background: #820df0 !important; 
             border-radius: 10px !important;
             border: 2px solid #2d1b4e !important; 
         }
@@ -29,106 +36,144 @@
 
         html, body, * {
             scrollbar-width: thin !important;
-            scrollbar-color: #a855f7 #2d1b4e !important; 
+            scrollbar-color: #9421ff #2d1b4e !important; 
         }
     </style>
 </head>
 <body class="m-0 p-0 text-white h-screen overflow-hidden">
     <div class="flex flex-col h-full min-h-screen">
-        <header class="sm:h-16 flex justify-between items-center flex-none bg-slate-800 w-full h-10 border-b-4 border-black">
-            <div class="pl-1 flex flex-row gap-3">
-                <div class="sm:text-4xl sm:[letter-spacing:0.1rem] text-2xl font-bold [text-shadow:3px_2px_0px_purple]">
-                    YkMainHub
+        <header id="header" class="text-white sm:h-16 flex justify-between items-center flex-none bg-slate-800 w-full h-10 border-b-4 border-slate-900">
+            <div class="sm:pl-2 pl-1 flex flex-row gap-3">
+                <div class="sm:text-4xl sm:[letter-spacing:0.1rem] text-2xl font-bold [text-shadow:3px_1px_0px_purple] tooltip tooltip-bottom [z-index:999]" data-tip="Back to Lobby">
+                    <a class="hover:text-gray-300" href="./index.html">YkMainHub</a>
                 </div>
             </div>
-            <div class="sm:text-4xl sm:gap-5 pr-1 flex flex-row gap-3 text-1xl">
-                <div>
-                    <a href="./about/">about</a>
+            <div class="md:gap-5 sm:text-3xl sm:pl-2 sm:gap-3 pr-1 flex flex-row gap-2 text-1xl [text-shadow:2px_2px_2px_black]">
+                <div class="tooltip tooltip-bottom [z-index:999]" data-tip="content guide">
+                    <a class="hover:text-gray-300" href="./about/">about</a>
+                </div>
+                <div class="tooltip tooltip-bottom [z-index:999]" data-tip="project preview">
+                    <a class="hover:text-gray-300" href="./project/">project</a>
+                </div>
+                <div class="tooltip tooltip-bottom [z-index:999]" data-tip="relevance skill">
+                    <a class="hover:text-gray-300" href="./skill/">skill</a>
+                </div>
+                <div class="lg:inline-block hidden tooltip tooltip-bottom [z-index:999]" data-tip="content guide">
+                    <a class="hover:text-gray-300" href="./about/">language</a>
+                </div>
+                <div class="lg:inline-block hidden tooltip tooltip-bottom [z-index:999]" data-tip="content guide">
+                    <a class="hover:text-gray-300" href="./project/">target</a>
+                </div>
+                <div class="lg:inline-block hidden tooltip tooltip-bottom [z-index:999]" data-tip="content guide">
+                    <a class="hover:text-gray-300" href="./skill/">game</a>
                 </div>
                 <div>
-                    <a href="./project/">project</a>
-                </div>
-                <div>
-                    <a href="./skill/">skill</a>
-                </div>
-                <div>
-                    <button id="searchbtn">
+                    <button id="searchbtn" class="tooltip tooltip-bottom [z-index:999]" data-tip="search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
                 <div>
-                    <button id="navbtn">
+                    <button id="navbtn" class="tooltip tooltip-bottom [z-index:999]" data-tip="nav">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </header>      
 
-        <subnav class="bg-slate-800 w-full max-h-10 border-b-4 border-black">
-            <ul class="sm:flex sm:items-center hidden p-[0.05rem] overflow-x-scroll">
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black bg-black"><p class="ml-1 mr-1">ABCDEFGH&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="p-1 border-r-2 text-2xl active:bg-red-800 border-black hover:border-white hover:bg-red-300"><p class="ml-1 mr-1">CDEFHIJK&nbsp;Project</p></li>
-            </ul>
-        </subnav>
+        <div>
+            <div id="subnav" class="bg-slate-800 w-full max-h-8">
+                <ul class="sm:flex sm:items-center hidden p-[0.05rem] cursor-pointer overflow-x-scroll">
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white bg-slate-900"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGH&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGHI&nbsp;project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGHI&nbsp;project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
+                </ul>
+            </div>
+        </div>
 
-        <nav id="navbar" class="bg-red-100 w-full hidden">
-            <ul class="pt-2 pb-4">
-               <li class="border-r-2 active:bg-red-800 border-black bg-black"><p class="ml-1 mr-1 pt-1">ABCDEFGH&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-r-2 active:bg-red-800 border-black bg-slate-800 hover:border-white hover:bg-red-300"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+        <nav id="navbar" class="bg-gray-800 hidden w-full">
+            <ul class="pb-4 cursor-pointer">
+                <li class="flex justify-center items-center border-b active:bg-slate-900 border-slate-900 hover:text-gray-600">
+                    <div id="settingbtn" class="ml-1 mr-1 pt-1 [letter-spacing:0.12rem]">
+                        - - - - - Settings (Click) - - - - - 
+                    </div>
+                </li>
+                <li class="border-b active:bg-slate-900 border-slate-900 bg-slate-900"><p class="ml-1 mr-1 pt-1">ABCDEFGH&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
+                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
             </ul>
+            <hr>
         </nav>
 
-        <div id="searchbar" class="bg-red-100 w-full hidden">
-            <ul class="pt-1 pb-1">
-                <input placeholder="search..." class="rounded-full"/>
+        <div id="settingbar" class="hidden bg-gray-800 w-full p-2">
+            <div class="flex justify-between mb-2">
+                <div class="sm:flex grid grid-cols-1 gap-1">
+                    <div id="lightbtn" class="btn pt-0 mr-4">lightmode</div>
+                    <div id="darkbtn" class="btn btn-neutral pt-0 mr-4">darkmode</div>
+                </div>
+                <div class="sm:flex grid grid-cols-2 gap-1">
+                    <div class="btn">Indonesia</div>
+                    <div class="btn mr-2">English</div>
+                    <div class="btn">Mandarin</div>
+                    <div class="btn mr-2">Korean</div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div id="searchbar" class="bg-gray-800 w-full hidden">
+            <ul class="p-2 pl-3 pr-3">
+                <input id="searchinput" placeholder="search..." class="text-slate-900 rounded-full w-full p-1"/>
+            </ul>
+            <hr>
+            <ul id="searchresult" class="pt-1 pb-2 pl-3 pr-3">
             </ul>
         </div>
 
-        <main class="flex flex-col flex-grow bg-gray-900 w-full overflow-y-auto">
-            <div class="sm:pl-12 sm:pr-12 flex flex-col bg-slate-800 w-full flex-1 rounded-md pl-5 pr-5">
+        <main id="main" class="flex flex-col flex-grow bg-gray-800 w-full overflow-y-auto">
+            <div id="main_content" class="sm:pl-24 sm:pr-24 text-sm flex flex-col w-full flex-1 rounded-md pl-5 pr-5">
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
+                        <div>halo teman"</div>
+                        <div class="mt-2 min-h-12 max-w-12 bg-red-500"></div>
                     </div>
                     <hr>
                 </section>
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
                     </div>
                     <hr>
                 </section>
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
                     </div>
                     <hr>
                 </section>
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
                     </div>
                     <hr>
                 </section>
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
                     </div>
                     <hr>
                 </section>
                 <section class="flex flex-col">
-                    <div class="w-full h-[60vh] bg-slate-700 p-1">
+                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
                     </div>
                     <hr>
                 </section>
@@ -139,22 +184,59 @@
             </footer>
         </main>
     </div>
+
     <script>
+        const header = document.getElementById("header")
+        const main = document.getElementById("main")
         const navbtn = document.getElementById("navbtn")
         const navbar = document.getElementById("navbar")
+        const subnav = document.getElementById("subnav")
         const searchbtn = document.getElementById("searchbtn")
         const searchbar = document.getElementById("searchbar")
+        const settingbtn = document.getElementById("settingbtn")
+        const settingbar = document.getElementById("settingbar")
+        const searchinput = document.getElementById("searchinput")
+        const searchresult = document.getElementById("searchresult")
+
         var navOpen = false
         var searchOpen = false
+        var settingOpen = false
+        var isLight = false
+        
+        const lightbtn = document.getElementById("lightbtn")
+        const darkbtn = document.getElementById("darkbtn")
+
+        const searchData = [
+            "About",
+            "Project",
+            "Skill",
+            "Language",
+            "Target",
+            "Game",
+            "Gallery",
+            "Tool",
+            "Playground",
+            "Other"
+        ]
+        
     
         navbtn.addEventListener("click", () => {
             navOpen = !navOpen
             searchOpen = false
+            settingOpen = false
             render()
         })
 
         searchbtn.addEventListener("click", () => {
             searchOpen = !searchOpen
+            navOpen = false
+            settingOpen = false
+            render()
+        })
+
+        settingbtn.addEventListener("click", () => {
+            settingOpen = !settingOpen
+            searchOpen = false
             navOpen = false
             render()
         })
@@ -162,7 +244,75 @@
         function render() {
             navbar.classList.toggle("hidden", !navOpen)
             searchbar.classList.toggle("hidden", !searchOpen)
+            settingbar.classList.toggle("hidden", !settingOpen)
         }
+
+        lightbtn.addEventListener("click", () => {
+            isLight = true
+            switchTheme()
+        })
+
+        darkbtn.addEventListener("click", () => {
+            isLight = false
+            switchTheme()
+        })
+
+        function switchTheme() {
+            header.classList.toggle("bg-cyan-50", isLight)
+            header.classList.toggle("text-slate-800", isLight)
+            main.classList.toggle("bg-cyan-100", isLight)
+            searchbar.classList.toggle("bg-white", isLight)
+            navbar.classList.toggle("bg-white", isLight)
+            subnav.classList.toggle("bg-white", isLight)
+            navbar.classList.toggle("text-slate-500", isLight)
+            subnav.classList.toggle("text-slate-500", isLight)
+            searchresult.classList.toggle("text-slate-500", isLight)
+            settingbar.classList.toggle("bg-white", isLight)
+            document.querySelector("footer").classList.toggle("text-slate-800", isLight)
+            subnav.querySelectorAll("li").forEach(li => 
+            {
+                li.classList.toggle("bg-white", isLight)
+                li.classList.toggle("text-slate-500", isLight)
+                li.classList.toggle("border-r-slate-900", isLight)
+            })
+            navbar.querySelectorAll("li").forEach(li => 
+            {
+                li.classList.toggle("bg-white", isLight)
+                li.classList.toggle("text-slate-500", isLight)
+                li.classList.toggle("border-r-slate-900", isLight)
+            })
+        }
+
+        searchinput.addEventListener("input", () => {
+            const keyword = searchinput.value.toLowerCase()
+
+            searchresult.innerHTML = ""
+
+            if(keyword === ""){
+                return
+            }
+
+            const filtered = searchData.filter(item =>
+                item.toLowerCase().includes(keyword)
+            )
+
+            if(filtered.length === 0){
+                searchresult.innerHTML = `
+                    <li class="p-2 text-gray-400">
+                        no result found
+                    </li>
+                `
+                return
+            }
+
+            filtered.forEach(item => {
+                searchresult.innerHTML += `
+                    <li class="p-2 border-b border-slate-700 hover:bg-slate-700 cursor-pointer">
+                        ${item}
+                    </li>
+                `
+            })
+        })
     </script>
 </body>
 </html>
