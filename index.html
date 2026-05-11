@@ -7,14 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="./extension_icon.png">
+    <link rel="icon" type="image/png" href="assets/extension_icon.png">
     <style>
-        #searchbar, #navbar{
-            z-index:999 !important;
-        }
         main{
             z-index:1 !important;
             font-family: "Inter";
+        }
+        .navbar, .scrollbar{
+            z-index:999 !important;
         }
         main::-webkit-scrollbar {
             width: 10px !important;
@@ -42,9 +42,11 @@
 </head>
 <body class="m-0 p-0 text-white h-screen overflow-hidden">
     <div class="flex flex-col h-full min-h-screen">
-        <header id="header" class="text-white sm:h-16 flex justify-between items-center flex-none bg-slate-800 w-full h-10 border-b-4 border-slate-900">
+        <header id="header" class="text-neutral-300 sm:h-16 flex justify-between items-center flex-none 
+            bg-slate-800 w-full h-10 border-b-4 border-slate-900">
             <div class="sm:pl-2 pl-1 flex flex-row gap-3">
-                <div class="sm:text-4xl sm:[letter-spacing:0.1rem] text-2xl font-bold [text-shadow:3px_1px_0px_purple] tooltip tooltip-bottom [z-index:999]" data-tip="Back to Lobby">
+                <div class="sm:text-4xl sm:[letter-spacing:0.1rem] text-2xl font-bold [text-shadow:3px_1px_0px_purple] tooltip tooltip-bottom 
+                    [z-index:999]" data-tip="Back to Lobby">
                     <a class="hover:text-gray-300" href="./index.html">YkMainHub</a>
                 </div>
             </div>
@@ -83,40 +85,64 @@
         <div>
             <div id="subnav" class="bg-slate-800 w-full max-h-8">
                 <ul class="sm:flex sm:items-center hidden p-[0.05rem] cursor-pointer overflow-x-scroll">
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white bg-slate-900"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGH&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGHI&nbsp;project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">ABCDEFGHI&nbsp;project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">BCDEFGHIJ&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
-                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 border-b-4 border-slate-900">CDEFHIJK&nbsp;Project</p></li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white bg-slate-900">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Lobby
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Project
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Skill
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Language
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Target
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Game
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Gallery
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Tool
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Playground
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Template&nbsp;Collection
+                        </p>
+                    </li>
+                    <li class="p-1 border-r-2 text-1xl active:bg-slate-900 border-white hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 border-b-4 border-slate-900">
+                            Current&nbsp;Map
+                        </p>
+                    </li>
                 </ul>
             </div>
         </div>
-
-        <nav id="navbar" class="bg-gray-800 hidden w-full">
-            <ul class="pb-4 cursor-pointer">
-                <li class="flex justify-center items-center border-b active:bg-slate-900 border-slate-900 hover:text-gray-600">
-                    <div id="settingbtn" class="ml-1 mr-1 pt-1 [letter-spacing:0.12rem]">
-                        - - - - - Settings (Click) - - - - - 
-                    </div>
-                </li>
-                <li class="border-b active:bg-slate-900 border-slate-900 bg-slate-900"><p class="ml-1 mr-1 pt-1">ABCDEFGH&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">ABCDEFGHI&nbsp;project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">BCDEFGHIJ&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-                <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600"><p class="ml-1 mr-1 pt-1">CDEFHIJK&nbsp;Project</p></li>
-            </ul>
-            <hr>
-        </nav>
 
         <div id="settingbar" class="hidden bg-gray-800 w-full p-2">
             <div class="flex justify-between mb-2">
@@ -134,49 +160,152 @@
             <hr>
         </div>
 
-        <div id="searchbar" class="bg-gray-800 w-full hidden">
-            <ul class="p-2 pl-3 pr-3">
-                <input id="searchinput" placeholder="search..." class="text-slate-900 rounded-full w-full p-1"/>
-            </ul>
-            <hr>
-            <ul id="searchresult" class="pt-1 pb-2 pl-3 pr-3">
-            </ul>
-        </div>
-
         <main id="main" class="flex flex-col flex-grow bg-gray-800 w-full overflow-y-auto">
-            <div id="main_content" class="sm:pl-24 sm:pr-24 text-sm flex flex-col w-full flex-1 rounded-md pl-5 pr-5">
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                        <div>halo teman"</div>
-                        <div class="mt-2 min-h-12 max-w-12 bg-red-500"></div>
-                    </div>
-                    <hr>
-                </section>
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                    </div>
-                    <hr>
-                </section>
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                    </div>
-                    <hr>
-                </section>
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                    </div>
-                    <hr>
-                </section>
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                    </div>
-                    <hr>
-                </section>
-                <section class="flex flex-col">
-                    <div class="w-full sm:h-[100vh] h-[40vh] bg-slate-700 p-1">
-                    </div>
-                    <hr>
-                </section>
+            <div id="searchbar" class="bg-gray-800 w-full hidden fixed">
+                <ul class="pt-4 p-2 pl-3 pr-3">
+                    <input id="searchinput" placeholder="search..." class="text-slate-900 rounded-full w-full p-1"/>
+                </ul>
+                <hr>
+                <ul id="searchresult" class="pt-1 pb-2 pl-3 pr-3">
+                </ul>
+            </div>
+
+            <nav id="navbar" class="bg-gray-800 hidden w-full fixed">
+                <ul class="pt-4 pb-4 cursor-pointer">
+                    <li class="flex justify-center items-center border-b active:bg-slate-900 border-slate-900 hover:text-gray-600">
+                        <div id="settingbtn" class="ml-1 mr-1 pt-1 [letter-spacing:0.12rem]">
+                            - - - - - Settings (Click) - - - - - 
+                        </div>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 bg-slate-900">
+                        <p class="ml-1 mr-1 pt-1">
+                            Lobby
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Project
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Skill
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Language
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Target
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Game
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Gallery
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Tool
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Playground
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Template&nbsp;Collection
+                        </p>
+                    </li>
+                    <li class="border-b active:bg-slate-900 border-slate-900 hover:border-white hover:bg-gray-600">
+                        <p class="ml-1 mr-1 pt-1">
+                            Current&nbsp;Map
+                        </p>
+                    </li>
+                </ul>
+                <hr>
+            </nav>
+
+            <div id="main_container" class="lg:pl-48 lg:pr-48 md:pl-36 md:pr-36 sm:pl-24 sm:pr-24 pt-4 text-sm flex
+                flex-col w-full flex-1 rounded-md pl-5 pr-5">
+                <div id="main_content" class="flex flex-col">
+                    <section class="flex flex-col justify-center items-center gap-4 w-full min-h-[30vh] p-2 border-b-4
+                      border-gray-700 mb-4 text-slate-800 [text-shadow:1px_1px_2px_darkblue] font-bold [letter-spacing:4px] bg-cyan-50
+                        rounded-xl">
+                        <div class="flex flex-col  items-center text-1xl">
+                            <div>
+                                WEBSITE LOCATION
+                            </div>
+                            <div class="">
+                                CURRENTLY IN:
+                            </div>
+                            <div class="text-2xl">
+                                LOBBY
+                            </div>
+                        </div>
+
+
+                        <div class="lg:gap-8 md:gap-6 sm:gap-4 grid grid-cols-2 grid-rows-2 gap-2">
+
+                            <div class="col-span-1 row-span-1 flex flex-col items-center justify-center">
+                                <div class="text-sm font-bold">
+                                    <img alt="device" class="md:max-h-32 sm:max-h-28 border-4 border-black rounded-lg" src="./assets/laptop.png"/>
+                                </div>
+                            </div>
+
+                            <div class="col-span-1 row-span-2 flex flex-col items-center justify-center">
+                                <div class="text-sm font-bold">
+                                    <img alt="device" class="md:max-h-64 sm:max-h-52 border-4 border-black rounded-lg" src="./assets/phone.png"/>
+                                </div>
+                            </div>
+
+                            <div class="col-span-1 row-span-1 flex flex-col items-center justify-center">
+                                <div class="text-sm font-bold">
+                                    <img alt="device" class="md:max-h-32 sm:max-h-28 border-4 border-black rounded-lg" src="./assets/tablet.png"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sm:[letter-spacing:8px] text-xs opacity-60">
+                            Website Ready • To Dive 
+                            <p class="mt-1">Local Time: <span id="time"></span> WIB</p>
+                        </div>
+                    </section>
+                    <section class="flex flex-row gap-4 w-full min-h-[40vh] p-2 border-b-4 border-gray-700 mb-4">
+                        <div class="border border-black">
+                            
+                        </div>
+                        <div class="border border-black">
+                            
+                        </div>
+                    </section>
+                    <section class="flex flex-row gap-4 w-full min-h-[40vh] p-2 border-b-4 border-gray-700 mb-4">
+                        <div class="border border-black">
+                            <!--content-->
+                        </div>
+                        <div class="border border-black">
+                            <!--content-->
+                        </div>
+                    </section>
+                    <section class="flex flex-row gap-4 w-full min-h-[40vh] p-2 border-b-4 border-gray-700 mb-4">
+                        <div class="border border-black">
+                            <!--content-->
+                        </div>
+                        <div class="border border-black">
+                            <!--content-->
+                        </div>
+                    </section>
+                </div>
             </div>
 
             <footer class="flex justify-center items-center flex-none bg--800 w-full h-10 p-1 text-xs">
@@ -188,6 +317,7 @@
     <script>
         const header = document.getElementById("header")
         const main = document.getElementById("main")
+        const main_content = document.getElementById("main_content")
         const navbtn = document.getElementById("navbtn")
         const navbar = document.getElementById("navbar")
         const subnav = document.getElementById("subnav")
@@ -197,6 +327,7 @@
         const settingbar = document.getElementById("settingbar")
         const searchinput = document.getElementById("searchinput")
         const searchresult = document.getElementById("searchresult")
+        const time = document.getElementById("time")
 
         var navOpen = false
         var searchOpen = false
@@ -218,7 +349,14 @@
             "Playground",
             "Other"
         ]
-        
+
+        const today = new Date();
+        const hours = today.getUTCHours()+7;
+        const minutes = today.getUTCMinutes();
+        const seconds = today.getUTCSeconds();
+        const formattedTime = new Intl.DateTimeFormat('id-ID', { hour: '2-digit', minute: '2-digit'}).format(today);
+
+        time.innerHTML = formattedTime
     
         navbtn.addEventListener("click", () => {
             navOpen = !navOpen
@@ -258,27 +396,33 @@
         })
 
         function switchTheme() {
-            header.classList.toggle("bg-cyan-50", isLight)
+            header.classList.toggle("bg-neutral-300", isLight)
             header.classList.toggle("text-slate-800", isLight)
-            main.classList.toggle("bg-cyan-100", isLight)
+            main.classList.toggle("bg-zinc-300", isLight)
+            main.classList.toggle("text-slate-800", isLight)
             searchbar.classList.toggle("bg-white", isLight)
             navbar.classList.toggle("bg-white", isLight)
             subnav.classList.toggle("bg-white", isLight)
-            navbar.classList.toggle("text-slate-500", isLight)
-            subnav.classList.toggle("text-slate-500", isLight)
-            searchresult.classList.toggle("text-slate-500", isLight)
+            navbar.classList.toggle("text-slate-800", isLight)
+            subnav.classList.toggle("text-slate-800", isLight)
+            searchresult.classList.toggle("text-slate-800", isLight)
             settingbar.classList.toggle("bg-white", isLight)
             document.querySelector("footer").classList.toggle("text-slate-800", isLight)
+            main_container.classList.toggle("bg-neutral-300", isLight)
+            main_content.querySelectorAll("section").forEach(div => {
+                div.classList.toggle("border-b-2", isLight)
+                div.classList.toggle("border-gray-700", isLight)
+            })
             subnav.querySelectorAll("li").forEach(li => 
             {
                 li.classList.toggle("bg-white", isLight)
-                li.classList.toggle("text-slate-500", isLight)
+                li.classList.toggle("text-slate-800", isLight)
                 li.classList.toggle("border-r-slate-900", isLight)
             })
             navbar.querySelectorAll("li").forEach(li => 
             {
                 li.classList.toggle("bg-white", isLight)
-                li.classList.toggle("text-slate-500", isLight)
+                li.classList.toggle("text-slate-800", isLight)
                 li.classList.toggle("border-r-slate-900", isLight)
             })
         }
